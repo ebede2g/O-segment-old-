@@ -4,19 +4,17 @@ import android.content.Context
 import android.opengl.GLSurfaceView
 
 class MyGLSurfaceView(context: Context) : GLSurfaceView(context) {
-
     private val renderer: MyGLRenderer
-
     init {
 
-        // Create an OpenGL ES 2.0 context
-        setEGLContextClientVersion(2)
+        setEGLContextClientVersion(2)                   // Create an OpenGL ES 2.0 context
 
         renderer = MyGLRenderer()
 
-        // Set the Renderer for drawing on the GLSurfaceView
-        setRenderer(renderer)
+        setRenderer(renderer)                           // Set the Renderer for drawing on the GLSurfaceView
 
         renderMode = GLSurfaceView.RENDERMODE_WHEN_DIRTY                    //рендер лише того, що ми бачимо, дял економії пам'яті
     }
+
+
 }

@@ -13,6 +13,7 @@ class MyGLSurfaceView(context: Context) : GLSurfaceView(context) {
 
         setRenderer(renderer)                           // Set the Renderer for drawing on the GLSurfaceView
 
+
         //renderMode = GLSurfaceView.RENDERMODE_WHEN_DIRTY                    //рендер лише того, що ми бачимо, дял економії пам'яті
     }
 

@@ -8,9 +8,13 @@ import android.opengl.GLSurfaceView
 import android.opengl.Matrix
 import android.os.SystemClock
 
+
+
 class MyGLRenderer : GLSurfaceView.Renderer {
 
 
+    @Volatile
+    var angle: Float = 0f
 
     private lateinit var mTriangle: Triangle
     private lateinit var mSquare: Square
@@ -27,7 +31,7 @@ class MyGLRenderer : GLSurfaceView.Renderer {
 
     override fun onSurfaceCreated(unused: GL10, config: EGLConfig) {
         // Set the background frame color
-        GLES20.glClearColor(0.0f, 1.0f, 1.0f, 1.0f)
+        GLES20.glClearColor(0.0f, -0.7f, -0.86f, -1.0f)
 
         // initialize a triangle
         mTriangle = Triangle()
@@ -56,9 +60,10 @@ class MyGLRenderer : GLSurfaceView.Renderer {
 
 
         // Create a rotation transformation for the triangle
-        val time = SystemClock.uptimeMillis() % 4000L
-        val angle = 0.090f * time.toInt()
-        Matrix.setRotateM(rotationMatrix, 0, angle, 0f, 0f, -1.0f)
+        //мимвоільене обертання /val time = SystemClock.uptimeMillis() % 4000L
+        //мимвоільене обертання /val angle = 0.090f * time.toInt()
+
+        Matrix.setRotateM(rotationMatrix, 0, angle, -0f, 0f, -1f) // Обертання пальцем
 
         // Combine the rotation matrix with the projection and camera view
         // Note that the vPMatrix factor *must be first* in order
@@ -85,4 +90,13 @@ class MyGLRenderer : GLSurfaceView.Renderer {
         // in the onDrawFrame() method
         Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1f, 1f, 3f, 7f)
     }
+
+
+
+
+
+
+
+
+
 }
